@@ -1,0 +1,298 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║              🚀 BRAND CHAMELEON AI - COMPLETE SETUP FLOW 🚀              ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 1: GET API KEYS                                                    │
+│  ═══════════════════════                                                 │
+│                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  🔑 OpenAI                                                       │    │
+│  │  ─────────────────────────────────────────────────────────────  │    │
+│  │  1. Go to: https://platform.openai.com/api-keys                 │    │
+│  │  2. Click "Create new secret key"                               │    │
+│  │  3. Copy key: sk-proj-xxxxxxxxxxxxx                             │    │
+│  │  4. Save it somewhere safe!                                     │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  🗄️  Supabase                                                    │    │
+│  │  ─────────────────────────────────────────────────────────────  │    │
+│  │  1. Go to: https://supabase.com                                 │    │
+│  │  2. Create new project                                          │    │
+│  │  3. Go to Settings → API                                        │    │
+│  │  4. Copy:                                                        │    │
+│  │     • Project URL: https://xxxxx.supabase.co                    │    │
+│  │     • anon public key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... │    │
+│  │     • service_role key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...│    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 2: CONFIGURE ENVIRONMENT                                           │
+│  ══════════════════════════════                                          │
+│                                                                           │
+│  Option A: Use Setup Script (Recommended)                                │
+│  ─────────────────────────────────────────                               │
+│                                                                           │
+│  Windows:                                                                │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  > setup-env.bat                                                 │    │
+│  │  [Follow the prompts to enter your API keys]                    │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  Mac/Linux:                                                              │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  $ chmod +x setup-env.sh                                         │    │
+│  │  $ ./setup-env.sh                                                │    │
+│  │  [Follow the prompts to enter your API keys]                    │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  Option B: Manual Setup                                                  │
+│  ───────────────────────                                                 │
+│                                                                           │
+│  1. Create frontend/.env.local                                           │
+│  2. Create backend/.env                                                  │
+│  3. Add your API keys to both files                                      │
+│                                                                           │
+│  See: COMPLETE_SETUP_GUIDE.md for exact format                           │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 3: INSTALL DEPENDENCIES                                            │
+│  ═════════════════════════════                                           │
+│                                                                           │
+│  Frontend (Node.js)                                                      │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  $ cd frontend                                                   │    │
+│  │  $ npm install                                                   │    │
+│  │  [Wait for packages to install...]                              │    │
+│  │  ✅ Done!                                                        │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  Backend (Python)                                                        │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  $ cd backend                                                    │    │
+│  │  $ python -m venv venv                                           │    │
+│  │  $ source venv/bin/activate  # or .\venv\Scripts\Activate.ps1   │    │
+│  │  $ pip install -r requirements.txt                               │    │
+│  │  [Wait for packages to install...]                              │    │
+│  │  ✅ Done!                                                        │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 4: START SERVERS                                                   │
+│  ══════════════════════                                                  │
+│                                                                           │
+│  Terminal 1: Backend Server                                              │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  $ cd backend                                                    │    │
+│  │  $ source venv/bin/activate  # or .\venv\Scripts\Activate.ps1   │    │
+│  │  $ python main.py                                                │    │
+│  │                                                                  │    │
+│  │  INFO:     Uvicorn running on http://127.0.0.1:8000             │    │
+│  │  INFO:     Application startup complete.                        │    │
+│  │  ✅ Backend running!                                             │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  Terminal 2: Frontend Server                                             │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  $ cd frontend                                                   │    │
+│  │  $ npm run dev                                                   │    │
+│  │                                                                  │    │
+│  │  - ready started server on 0.0.0.0:3000                         │    │
+│  │  - Local:        http://localhost:3000                          │    │
+│  │  ✅ Frontend running!                                            │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 5: OPEN BROWSER                                                    │
+│  ═════════════════════                                                   │
+│                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │                                                                  │    │
+│  │  🌐 Open: http://localhost:3000                                 │    │
+│  │                                                                  │    │
+│  │  You should see:                                                │    │
+│  │  ┌──────────────────────────────────────────────────────────┐  │    │
+│  │  │                                                          │  │    │
+│  │  │  ┌──────────┐  ┌─────────────────────────────────┐     │  │    │
+│  │  │  │ SIDEBAR  │  │  DASHBOARD                      │     │  │    │
+│  │  │  │          │  │                                 │     │  │    │
+│  │  │  │ Dashboard│  │  Welcome back!                  │     │  │    │
+│  │  │  │ Generate │  │                                 │     │  │    │
+│  │  │  │ Trends   │  │  [Stats Cards]                  │     │  │    │
+│  │  │  │ ...      │  │                                 │     │  │    │
+│  │  │  │          │  │                                 │     │  │    │
+│  │  │  │ Settings │  │                                 │     │  │    │
+│  │  │  │ ────────│  │                                 │     │  │    │
+│  │  │  │ Sign In  │  │                                 │     │  │    │
+│  │  │  │ Sign Up  │  │  ← Look here for login buttons! │     │  │    │
+│  │  │  └──────────┘  └─────────────────────────────────┘     │  │    │
+│  │  │                                                          │  │    │
+│  │  └──────────────────────────────────────────────────────────┘  │    │
+│  │                                                                  │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 6: CREATE FIRST USER                                               │
+│  ══════════════════════════                                              │
+│                                                                           │
+│  Method 1: Using Signup Page (Easiest)                                   │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  1. Click "Sign Up Free" at bottom of sidebar                   │    │
+│  │  2. Fill in the form:                                            │    │
+│  │     • Full Name: Your Name                                       │    │
+│  │     • Email: your.email@example.com                              │    │
+│  │     • Password: YourSecurePassword123!                           │    │
+│  │     • Confirm Password: YourSecurePassword123!                   │    │
+│  │     • ✅ Check "I agree to terms"                                │    │
+│  │  3. Click "Create Account"                                       │    │
+│  │  4. ✅ You're logged in!                                         │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+│  Method 2: Using Supabase Dashboard                                      │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  1. Go to https://supabase.com                                   │    │
+│  │  2. Open your project                                            │    │
+│  │  3. Click Authentication → Users                                 │    │
+│  │  4. Click "Add User"                                             │    │
+│  │  5. Fill in email and password                                   │    │
+│  │  6. ✅ Check "Auto Confirm User"                                 │    │
+│  │  7. Click "Create User"                                          │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 7: TEST LOGIN                                                      │
+│  ═══════════════════                                                     │
+│                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  1. Go to http://localhost:3000/login                            │    │
+│  │  2. Enter your email and password                                │    │
+│  │  3. Click "Sign In"                                              │    │
+│  │  4. You should be redirected to dashboard                        │    │
+│  │  5. Check sidebar - you should see your profile!                 │    │
+│  │                                                                  │    │
+│  │  ┌──────────────────────┐                                        │    │
+│  │  │  Settings            │                                        │    │
+│  │  │  ──────────────────  │                                        │    │
+│  │  │  👤 JD               │  ← Your profile appears here!          │    │
+│  │  │  Your Name           │                                        │    │
+│  │  │  Pro Plan            │                                        │    │
+│  │  │  Credits: 75%        │                                        │    │
+│  │  │  [████████░░]        │                                        │    │
+│  │  └──────────────────────┘                                        │    │
+│  │                                                                  │    │
+│  │  ✅ Login successful!                                            │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│  STEP 8: CONFIGURE API KEYS IN SETTINGS                                  │
+│  ════════════════════════════════════════                                │
+│                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  1. Click "Settings" in sidebar                                  │    │
+│  │  2. Click "API Keys" tab                                         │    │
+│  │  3. Enter your API keys:                                         │    │
+│  │     • OpenAI API Key                                             │    │
+│  │     • Supabase URL                                               │    │
+│  │     • Supabase Anon Key                                          │    │
+│  │     • Twitter API Key (optional)                                 │    │
+│  │     • LinkedIn Client ID (optional)                              │    │
+│  │  4. Click "Save Changes"                                         │    │
+│  │  5. ✅ API keys configured!                                      │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+                                    ↓
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                         ✅ SETUP COMPLETE! ✅                             ║
+║                                                                           ║
+║  You can now:                                                            ║
+║  • Generate AI content                                                   ║
+║  • Train your brand voice                                                ║
+║  • Schedule posts                                                        ║
+║  • View analytics                                                        ║
+║  • Explore trending topics                                               ║
+║  • Manage team members                                                   ║
+║                                                                           ║
+║  🎉 Enjoy your Brand Chameleon AI platform! 🎉                           ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+                            📚 HELPFUL RESOURCES
+
+═══════════════════════════════════════════════════════════════════════════
+
+• COMPLETE_SETUP_GUIDE.md    - Detailed setup instructions
+• QUICK_REFERENCE.md          - Quick command reference
+• API_KEYS_REQUIRED.md        - API key details
+• LOGIN_SIGNUP_READY.md       - Authentication guide
+• WHERE_ARE_LOGIN_BUTTONS.md  - Visual button guide
+• TROUBLESHOOTING.md          - Common issues
+
+═══════════════════════════════════════════════════════════════════════════
+
+                            🆘 NEED HELP?
+
+═══════════════════════════════════════════════════════════════════════════
+
+Check these URLs:
+• Frontend: http://localhost:3000
+• Backend:  http://localhost:8000
+• API Docs: http://localhost:8000/docs
+
+Check logs:
+• Frontend: Browser console (F12)
+• Backend:  Terminal where backend is running
+
+Common issues:
+• "Module not found" → Run npm install or pip install
+• "Port in use" → Kill process on port 3000/8000
+• "Invalid API key" → Check .env files for typos
+• "Can't login" → Verify Supabase keys are correct
+
+═══════════════════════════════════════════════════════════════════════════

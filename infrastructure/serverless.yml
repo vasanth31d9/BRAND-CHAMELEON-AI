@@ -1,0 +1,50 @@
+service: brand-chameleon-api
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  environment:
+    DATABASE_URL: ${env:DATABASE_URL}
+    OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+    PINECONE_API_KEY: ${env:PINECONE_API_KEY}
+    SECRET_KEY: ${env:SECRET_KEY}
+
+functions:
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+    timeout: 30
+    memorySize: 512
+
+  contentGenerator:
+    handler: handlers/content.generate
+    events:
+      - http:
+          path: /api/content/generate
+          method: POST
+          cors: true
+    timeout: 60
+    memorySize: 1024
+
+  trendFetcher:
+    handler: handlers/trends.fetch
+    events:
+      - schedule: rate(1 hour)
+    timeout: 300
+
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
+
+custom:
+  wsgi:
+    app: main.app
+  pythonRequirements:
+    dockerizePip: true
+    layer: true
