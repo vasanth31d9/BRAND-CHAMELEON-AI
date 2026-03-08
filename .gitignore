@@ -4,11 +4,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Environment
+# Environment - CRITICAL: Never commit these!
 .env
 .env.local
 .env.*.local
 *.env
+!.env.example
+backend/.env
+frontend/.env.local
 
 # Build outputs
 .next/
@@ -44,3 +47,36 @@ logs/
 venv/
 env/
 *.pyc
+
+# Temporary/Process documentation (not needed in repo)
+ACCESSING_AUTH_PAGES.md
+AUTHENTICATION_COMPLETE.md
+BUTTON_FIX_COMPLETE.md
+CHECKLIST.md
+CINEMATIC_EFFECTS.md
+CONTENT_GENERATION_FIX.md
+CONTENT_GENERATION_READY.md
+CONTENT_GENERATION_TROUBLESHOOTING.md
+DATABASE_SETUP_SUMMARY.md
+DOCUMENTATION_INDEX.md
+ENHANCED_ANIMATIONS_COMPLETE.md
+FINAL_SETUP_SUMMARY.md
+FIX_CONTENT_GENERATION.md
+FIX_GENERATE_PAGE.md
+GITHUB_SETUP.md
+HOW_TO_START.md
+LOGIN_SIGNUP_READY.md
+PUSH_NOW.md
+PUSH_TO_GITHUB_QUICK.md
+push-to-github.bat
+push-to-github.sh
+QUICK_FIX_GUIDE.md
+READY_TO_PUSH.md
+RESTART_DEV.md
+SETUP_FLOW.txt
+START_CHECKLIST.md
+START_HERE.md
+WHAT_I_FIXED_TODAY.md
+WHERE_ARE_LOGIN_BUTTONS.md
+test-content-generation.bat
+test-content-generation.sh
