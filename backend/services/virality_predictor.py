@@ -1,10 +1,15 @@
 import openai
 from typing import Dict, List
 import re
+import os
 
 class ViralityPredictor:
     def __init__(self):
-        self.client = openai.OpenAI()
+        api_key = os.getenv("OPENAI_API_KEY")
+        if api_key:
+            self.client = openai.OpenAI(api_key=api_key)
+        else:
+            self.client = None
     
     async def predict(self, content: str, platform: str) -> Dict:
         """Predict virality score and metrics"""

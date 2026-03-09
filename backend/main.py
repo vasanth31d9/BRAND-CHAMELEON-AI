@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import content, brand_voice, trends, analytics, auth
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+print("OPENAI KEY:", os.getenv("OPENAI_API_KEY"))
 app = FastAPI(
     title="Brand Chameleon AI API",
     description="AI-powered content generation platform",
@@ -29,3 +33,7 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

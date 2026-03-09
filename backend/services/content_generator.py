@@ -3,10 +3,14 @@ from typing import Optional
 import PyPDF2
 import httpx
 from bs4 import BeautifulSoup
+import os
 
 class ContentGenerator:
     def __init__(self):
-        self.client = openai.OpenAI()
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY not found in environment variables")
+        self.client = openai.OpenAI(api_key=api_key)
     
     async def extract_from_url(self, url: str) -> str:
         """Extract content from URL"""
