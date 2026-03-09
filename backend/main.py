@@ -3,9 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from api.routes import content, brand_voice, trends, analytics, auth
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
-print("OPENAI KEY:", os.getenv("OPENAI_API_KEY"))
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY not found in environment variables")
+
+print("API key loaded:", OPENAI_API_KEY is not None)
 app = FastAPI(
     title="Brand Chameleon AI API",
     description="AI-powered content generation platform",
