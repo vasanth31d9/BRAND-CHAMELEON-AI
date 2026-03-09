@@ -264,7 +264,7 @@ export default function LoginPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/signup" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors">
             Sign up for free
           </Link>
